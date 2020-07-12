@@ -11,14 +11,15 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const theme = {
   Button: {
     containerStyle: {
-        marginTop: 50,
-    }
+        // marginTop: 50,
+        margin: 10,
+    },
   },
 
   Input: {
     containerStyle: {
-        marginLeft: 50,
-        marginRight: 50,
+        marginLeft: 100,
+        marginRight: 100,
     }
   },
 
@@ -32,11 +33,12 @@ const SimpleLayout = () => {
       <View
          style={{
             flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
+            alignItems: 'center',
+            padding: 20,
+            justifyContent: 'center',
          }}
       >
-        <Text>Welcome</Text>
+        <Text style={{fontSize: 24}}>WELCOME</Text>
         <Input
           placeholder="Name"
           leftIcon={
@@ -59,10 +61,25 @@ const SimpleLayout = () => {
               }
             />
 
-        <Button
-          title="Login"
-          type="outline"
-        />
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "center",
+              }}
+            >
+                <View style={{flex: 1}}>
+                  <Button
+                    title="Login"
+                    type="outline"
+                  />
+                </View>
+                <View style={{flex: 1}}>
+                  <Button
+                    title="Exit"
+                    type="outline"
+                  />
+                </View>
+            </View>
       </View>
     </ThemeProvider>
   )
