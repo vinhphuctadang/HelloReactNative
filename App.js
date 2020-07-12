@@ -1,23 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
+// must define React to let runner load standard "REACT"
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+// View components from react native if we use "View" and "Text" tags
+import { Text, View } from 'react-native';
 
-export default function App() {
+// Render default page, this is a function
+const HelloWorldApp = () => {
   return (
-    <View style={styles.container}>
-      <Button
-        title="Hello world"
-      />
-      <StatusBar style="auto" />
+    <View>
+      <Text>Hello, world!</Text>
     </View>
-  );
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// export to make the render function 'visible' to the web runner
+export default HelloWorldApp;
