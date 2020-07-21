@@ -1,9 +1,9 @@
 // must define React to let runner load standard "REACT"
-import React from 'react';
+import React, {Component} from 'react';
 // View components from react native if we use "View" and "Text" tags
-import { Text, View } from 'react-native';
-
-import { Button, Input, ThemeProvider} from 'react-native-elements';
+import { AppRegistry, Text, View, ActivityIndicator } from 'react-native';
+import Swiper from 'react-native-swiper';
+import { Button, Input, ThemeProvider } from 'react-native-elements';
 
 // icon
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -25,65 +25,122 @@ const theme = {
 
 }
 
-// Render default page, this is a function
-const SimpleLayout = () => {
-  return (
+const styles = {
+  shadowBox : {
+    margin: 16,
+    backgroundColor: 'white',
+    borderRadius: 8,
+    borderWidth: 0,
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
+    shadowColor: 'black',
+    shadowOffset: { height: 2, width: 2 },
+  },
+}
+export default class extends Component {
 
-    <ThemeProvider theme={theme}>
-      <View
-         style={{
-            flex: 1,
-            alignItems: 'center',
-            padding: 20,
-            justifyContent: 'center',
-         }}
-      >
-        <Text style={{fontSize: 24}}>WELCOME</Text>
-        <Input
-          placeholder="Name"
-          leftIcon={
-              <Icon
-                name='user'
-                size={24}
-                color='black'
-              />
-          }
-         />
+  constructor(props){
+    super(props)
+    this.state = {
 
-         <Input
-            placeholder="Password"
-            leftIcon={
-                <Icon
-                  name='lock'
-                  size={24}
-                  color='black'
-                />
-              }
-            />
+    }
 
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "center",
-              }}
+
+    this.state.list = [
+      'Thao',
+      'Cung la Thao nhung chu dai hon',
+      'Van la Thao'
+    ]
+  }
+
+  renderChild(){
+    return (
+      <View> </View>
+    )
+  }
+
+  render(){
+    return (
+      <View style={{flex: 10, backgroundColor: "black"}} >
+        <View style={{flex: 2.5}}></View>
+        <View style={{flex: 5}}>
+          <Swiper
+            showsButtons={false}
+            showsPagination={false}
+            loadMinimal={true}
             >
-                <View style={{flex: 1}}>
-                  <Button
-                    title="Login"
-                    type="outline"
-                  />
-                </View>
-                <View style={{flex: 1}}>
-                  <Button
-                    title="Exit"
-                    type="outline"
-                  />
-                </View>
+            <View style={{flex: 1, ...styles.shadowBox,  alignItems: "center", justifyContent: "center"}}>
+              <Text>Hello world</Text>
             </View>
+
+            <View style={{flex: 1, ...styles.shadowBox,  alignItems: "center", justifyContent: "center"}}>
+              <Text>Helli world</Text>
+            </View>
+
+            <View style={{flex: 1, ...styles.shadowBox,  alignItems: "center", justifyContent: "center"}}>
+              <Text>Hella</Text>
+            </View>
+          </Swiper>
+        </View>
+        <View style={{flex: 2.5}}></View>
       </View>
-    </ThemeProvider>
-  )
+    )
+  }
 }
 
+// AppRegistry.registerComponent('myproject', () => Swiper)
+
 // export to make the render function 'visible' to the web runner
-export default SimpleLayout;
+// export default SimpleLayout;
+//
+// import React, { Component } from 'react'
+// import { AppRegistry, StyleSheet, Text, View } from 'react-native'
+//
+// import Swiper from 'react-native-swiper';
+//
+// const styles = StyleSheet.create({
+//   wrapper: {},
+//   slide1: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#9DD6EB'
+//   },
+//   slide2: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#97CAE5'
+//   },
+//   slide3: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     backgroundColor: '#92BBD9'
+//   },
+//   text: {
+//     color: '#fff',
+//     fontSize: 30,
+//     fontWeight: 'bold'
+//   }
+// })
+//
+// export default class SwiperComponent extends Component {
+//   render() {
+//     return (
+//       <Swiper style={styles.wrapper} showsButtons={true}>
+//         <View style={styles.slide1}>
+//           <Text style={styles.text}>Hello Swiper</Text>
+//         </View>
+//         <View style={styles.slide2}>
+//           <Text style={styles.text}>Beautiful</Text>
+//         </View>
+//         <View style={styles.slide3}>
+//           <Text style={styles.text}>And simple</Text>
+//         </View>
+//       </Swiper>
+//     )
+//   }
+// }
+//
+// AppRegistry.registerComponent('myproject', () => SwiperComponent)
